@@ -16,7 +16,7 @@ game.PlayerEntity = me.Entity.extend({
              
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-        
+
         // ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
 
@@ -25,7 +25,7 @@ game.PlayerEntity = me.Entity.extend({
         // define a standing animation (using the first frame)
         this.renderable.addAnimation("stand",  [0]);
         // set the standing animation as default
-        this.renderable.setCurrentAnimation("stand");
+        this.renderable.setCurrentAnimation("stand");        
     },
 
     /**
@@ -85,7 +85,7 @@ game.PlayerEntity = me.Entity.extend({
         return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);     
     },
     
-    /**
+  /**
      * colision handler
      */
     onCollision : function (response, other) {
@@ -148,11 +148,8 @@ game.CoinEntity = me.CollectableEntity.extend(
     {
         // call the parent constructor
         this._super(me.CollectableEntity, 'init', [x, y , settings]);
-
-        // set our collision callback function
-        this.body.onCollision = this.onCollision.bind(this);
     },
-    
+
     /**
      * colision handler
      */
